@@ -13,6 +13,11 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  devtool: "cheap-module-eval-source-map",
+  devServer: {
+    port: 8092,
+    open: true,
+  },
   module: {
     rules: [
       {
@@ -28,7 +33,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader', 'postcss-loader']
       },
       {
         test: /\.(png|jpg|gif|svg)$/,

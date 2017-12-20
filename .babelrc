@@ -1,3 +1,12 @@
 {
-  "presets": ["env"]
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions", "ie >= 9", "safari >= 10"],
+        "node": "current"
+      },
+      "useBuiltIns": true,
+      "modules": false
+    }]
+  ]
 }

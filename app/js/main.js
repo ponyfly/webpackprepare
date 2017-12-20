@@ -1,15 +1,19 @@
+import 'babel-polyfill'
+import subB from './sub2'
+import $ from 'jquery'
+import subA from './sub'
+
+import '../css/main.css'
+
 const header = document.getElementById('header')
 
 header.style.cssText = 'background-color: yellowgreen'
 
 const promise = new Promise((resolve, reject) => {
-  console.log(1)
   resolve()
-  console.log(2)
 })
 
-promise.then(res => console.log(3))
-console.log(4)
+promise.then(() => console.log(123456))
 
-const arr = Array.of(1,2,3)
-console.log(arr);
+subB()
+$('#section_1').html(subA)
