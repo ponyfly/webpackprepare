@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
+    "build:dll": "webpack --config webpack.dll.conf.js",
     "server": "http-server dist -a 0.0.0.0 -p 8091 -o"
   },
   "keywords": [],

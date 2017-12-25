@@ -62,7 +62,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new cleanWebpackPlugin(['dist']),
     new htmlWebpackPlugin({
       template: './app/index.html',
       filename: 'index.html',
@@ -76,17 +75,9 @@ module.exports = {
     }),
     new OptimizeCssPlugin(),
     new webpack.HashedModuleIdsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vender',
-      minChunks: function (module) {
-        return (
-          module.resource && (/\.js$/).test(module.resource) && module.resource.indexOf(path.join(__dirname, './node_modules')) === 0
-        )
-      }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      chunks: ['vender']
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require('./dist/static/js/vendor-mainfest.json') // 指向这个json
     })
   ]
 }
