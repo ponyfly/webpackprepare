@@ -16,7 +16,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'static/js/[name]-[chunkhash].js'
+    filename: 'static/js/[name]-[chunkhash].js',
+    chunkFilename: "static/js/[name]-[chunkhash].js"
   },
   devtool: "source-map",
   module: {

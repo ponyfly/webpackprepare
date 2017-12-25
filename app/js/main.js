@@ -17,3 +17,11 @@ promise.then(() => console.log(123456))
 
 subB()
 $('#section_1').html(subA)
+/**
+ * 异步引入模块
+ */
+$('#btn').click(function () {
+  import('./dynamic')
+    .then(module => module.default())
+    .catch(err => console.log(err.message))
+})
